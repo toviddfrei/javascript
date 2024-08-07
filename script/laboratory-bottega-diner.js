@@ -1,4 +1,4 @@
-//Bottega bar
+//Bottega bar branch
 
 let titlefixedallapp = ['Bottega Bar', '¡¡¡Wellcome!!!', 'Good morning!', 'Good afternoom', 'Good night'];
 let datafixedallapp = ['Menu', 'Breakfast', 'Lunch', 'Diner', 'Article', 'Ingredient', 'Garnish', 'Supplement', 'piece', '25 centiliter glass', 'slice'];
