@@ -4,10 +4,55 @@ let titlefixedallapp = ['Bottega Bar', '¡¡¡Wellcome!!!', 'Good morning!', 'Go
 let datafixedallapp = ['Menu', 'Breakfast', 'Lunch', 'Diner', 'Article', 'Ingredient', 'Garnish', 'Supplement', 'piece', '25 centiliter glass', 'slice'];
 let tipsfixedallapp = ['It is very tasty', 'It is very nutritious', 'It is very healthy'];
 
+const listarticlecreated = [];
+let identifier = 0;
+class articlesbottegabar{
+    constructor(id, narticlebb, lhealthbb, particlebb, uarticlebb ){
+        identifier = ++id;
+        this.namearticlebottegabar = narticlebb;
+        this.levelhealth = lhealthbb;
+        this.pricearticlebottegabar = particlebb;
+        this.unitarticlebottegabar = uarticlebb;
+        const objectarticlebottegabar = { 
+            'identifier': identifier,
+            'namearticle':this.namearticlebottegabar,
+            'levelhealt':this.levelhealth,
+            'priceart':this.pricearticlebottegabar,
+            'unitmeas':this.unitarticlebottegabar
+            };
+        listarticlecreated.push(objectarticlebottegabar);
+    }
+}
+
+const articlenum0001 = new articlesbottegabar(identifier,'egg','0.75','0.82', datafixedallapp[8]);
+const articlenum0002 = new articlesbottegabar(identifier,'bacon','1.25','1.63', datafixedallapp[10]);
+const articlenum0003 = new articlesbottegabar(identifier,'juice orange','0.25','4.89', datafixedallapp[9]);
+const articlenum0004 = new articlesbottegabar(identifier,'bacon','1.25','1.63', datafixedallapp[10]);
+const articlenum0005 = new articlesbottegabar(identifier,'toast','1.25','1.63', datafixedallapp[8]);
+const articlenum0006 = new articlesbottegabar(identifier,'butter','1.25','1.63', datafixedallapp[8]);
+const articlenum0007 = new articlesbottegabar(identifier,'jewish','0.25','1.13', datafixedallapp[8]);
+const articlenum0008 = new articlesbottegabar(identifier,'potato','0.25','1.67', datafixedallapp[8]);
+const articlenum0009 = new articlesbottegabar(identifier,'carrot','0.25','1.21', datafixedallapp[8]);
+const articlenum0010 = new articlesbottegabar(identifier,'broccoli','0.25','1.16', datafixedallapp[8]);
+const articlenum0011 = new articlesbottegabar(identifier,'tomato','0.25','3.99', datafixedallapp[8]);
+const articlenum0012 = new articlesbottegabar(identifier,'lettuce','0.25','2.17', datafixedallapp[8]);
+const articlenum0013 = new articlesbottegabar(identifier,'onion','0.25','1.52', datafixedallapp[8]);
+const articlenum0014 = new articlesbottegabar(identifier,'meat pork','1.50','9.33', datafixedallapp[8]);
+const articlenum0015 = new articlesbottegabar(identifier,'fish','0.75','7.86', datafixedallapp[8]);
+const articlenum0016 = new articlesbottegabar(identifier,'chips','1.75','3.69', datafixedallapp[8]);
+const articlenum0017 = new articlesbottegabar(identifier,'mashed potatoes','1.75','6.09', datafixedallapp[8]);
+
+/*
+//console.log(listarticlecreated);
+for( let x in listarticlecreated){
+    console.log(listarticlecreated[x].identifier + ' ' + listarticlecreated[x].namearticle);
+}
+*/
+
+/*
 let identifierarticle = 0;
-function NewArticleBottegaBar (id, narticlebb, lhealthbb, particlebb, uarticlebb ){
-    identifierarticle = id;
-    this.namearticlebottegabar = narticlebb;
+function NewArticleBottegaBar (id, narticlebb, lhealthbb,particlebb, uarticlebb ){
+    identifierarticle = id;    this.namearticlebottegabar = narticlebb;
     this.levelhealth = lhealthbb;
     this.pricearticlebottegabar = particlebb;
     this.unitarticlebottegabar = uarticlebb;
@@ -20,6 +65,28 @@ function NewArticleBottegaBar (id, narticlebb, lhealthbb, particlebb, uarticlebb
     };
     listarticlecreated.push(objectarticlebottegabar);
 };
+*/
+
+//console.log(listarticlecreated);
+/*
+//let articlenum00000 = new NewArticleBottegaBar(0,'egg','0.75','0.82', datafixedallapp[8]);
+let articlenum00001 = new NewArticleBottegaBar(1,'bacon','1.25','1.63', datafixedallapp[10]);
+let articlenum00002 = new NewArticleBottegaBar(2,'juice orange','0.25','4.89', datafixedallapp[9]);
+let articlenum00003 = new NewArticleBottegaBar(3,'bacon','1.25','1.63', datafixedallapp[10]);
+let articlenum00004 = new NewArticleBottegaBar(4,'toast','1.25','1.63', datafixedallapp[8]);
+let articlenum00005 = new NewArticleBottegaBar(5,'butter','1.25','1.63', datafixedallapp[8]);
+let articlenum00006 = new NewArticleBottegaBar(6,'jewish','0.25','1.13', datafixedallapp[8]);
+let articlenum00007 = new NewArticleBottegaBar(7,'potato','0.25','1.67', datafixedallapp[8]);
+let articlenum00008 = new NewArticleBottegaBar(8,'carrot','0.25','1.21', datafixedallapp[8]);
+let articlenum00009 = new NewArticleBottegaBar(9,'broccoli','0.25','1.16', datafixedallapp[8]);
+let articlenum00010 = new NewArticleBottegaBar(10,'tomato','0.25','3.99', datafixedallapp[8]);
+let articlenum00011 = new NewArticleBottegaBar(11,'lettuce','0.25','2.17', datafixedallapp[8]);
+let articlenum00012 = new NewArticleBottegaBar(12,'onion','0.25','1.52', datafixedallapp[8]);
+let articlenum00013 = new NewArticleBottegaBar(13,'meat pork','1.50','9.33', datafixedallapp[8]);
+let articlenum00014 = new NewArticleBottegaBar(14,'fish','0.75','7.86', datafixedallapp[8]);
+let articlenum00015 = new NewArticleBottegaBar(15,'chips','1.75','3.69', datafixedallapp[8]);
+let articlenum00016 = new NewArticleBottegaBar(16,'mashed potatoes','1.75','6.09', datafixedallapp[8]);
+*/
 
 let identifiercombined = 0;
 function NewCombinedBottegaBar(id, ncombinedbb, tcombinedbb,dcombinedbb,...listingcombined){
@@ -67,25 +134,6 @@ function NewCombinedBottegaBar(id, ncombinedbb, tcombinedbb,dcombinedbb,...listi
     };
     listcombinedcreate.push(listingredientscombined);
 };
-
-const listarticlecreated = [];
-let articlenum00000 = new NewArticleBottegaBar(0,'egg','0.75','0.82', datafixedallapp[8]);
-let articlenum00001 = new NewArticleBottegaBar(1,'bacon','1.25','1.63', datafixedallapp[10]);
-let articlenum00002 = new NewArticleBottegaBar(2,'juice orange','0.25','4.89', datafixedallapp[9]);
-let articlenum00003 = new NewArticleBottegaBar(3,'bacon','1.25','1.63', datafixedallapp[10]);
-let articlenum00004 = new NewArticleBottegaBar(4,'toast','1.25','1.63', datafixedallapp[8]);
-let articlenum00005 = new NewArticleBottegaBar(5,'butter','1.25','1.63', datafixedallapp[8]);
-let articlenum00006 = new NewArticleBottegaBar(6,'jewish','0.25','1.13', datafixedallapp[8]);
-let articlenum00007 = new NewArticleBottegaBar(7,'potato','0.25','1.67', datafixedallapp[8]);
-let articlenum00008 = new NewArticleBottegaBar(8,'carrot','0.25','1.21', datafixedallapp[8]);
-let articlenum00009 = new NewArticleBottegaBar(9,'broccoli','0.25','1.16', datafixedallapp[8]);
-let articlenum00010 = new NewArticleBottegaBar(10,'tomato','0.25','3.99', datafixedallapp[8]);
-let articlenum00011 = new NewArticleBottegaBar(11,'lettuce','0.25','2.17', datafixedallapp[8]);
-let articlenum00012 = new NewArticleBottegaBar(12,'onion','0.25','1.52', datafixedallapp[8]);
-let articlenum00013 = new NewArticleBottegaBar(13,'meat pork','1.50','9.33', datafixedallapp[8]);
-let articlenum00014 = new NewArticleBottegaBar(14,'fish','0.75','7.86', datafixedallapp[8]);
-let articlenum00015 = new NewArticleBottegaBar(15,'chips','1.75','3.69', datafixedallapp[8]);
-let articlenum00016 = new NewArticleBottegaBar(16,'mashed potatoes','1.75','6.09', datafixedallapp[8]);
 
 const listcombinedcreate = [];
 let combined00000 = new NewCombinedBottegaBar(0, datafixedallapp[1],datafixedallapp[0], 'Menu 0 : Egg + toast + juice orange + butter + full cooffe',listarticlecreated[0],1,listarticlecreated[4],1,listarticlecreated[2],1,listarticlecreated[5],1);
@@ -154,5 +202,26 @@ function NewTicket(list){
         console.log('You must enter the menu digit please');
     };
 };
-console.log( titlefixedallapp[1] + ' ' + titlefixedallapp[0] );
-NewTicket(listcombinedcreate);
+
+function main(){
+    let usernow = prompt('¿Seleccione un tipo user (0)Admin ó (1)Client?');
+    //admin
+    if( usernow === '0'){
+        console.log('Hola Administrador');
+        let passusernow = prompt('Introduzca su password por favor : ');
+        if( passusernow === '1234567890'){
+            console.log('Administrator Board');
+        }
+        else{
+            console.log('La password no es correcta');
+        }
+    }
+    //client
+    if( usernow === 'client'){
+        console.log('titlefixedallapp[1]');
+        console.log( titlefixedallapp[1] + ' ' + titlefixedallapp[0] );
+        NewTicket(listcombinedcreate);
+    }
+}
+
+main();
