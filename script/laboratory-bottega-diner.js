@@ -218,6 +218,20 @@ function AskUserOpcion (optionmenuselecthorary, alertviewmenuplate) {
 };
 
 /**
+ * CommentLibrary : get a random comment
+ */
+
+function CommentLibrary(){
+  const listcommetforselected = [ 'It\'s very tasty', 'It is ideal for these hours', 'It is very healthy', 'It is the best quality' ];
+  let min = 1;
+  let max = listcommetforselected.length;
+
+  let resultcomment = Math.floor(Math.random() * (max - min + 1));
+  console.log(resultcomment);
+  return (listcommetforselected[`${resultcomment}`]);
+};
+
+/**
  * CreateTicketAskUser : Complete order ticket generator
  * @param {*} menuselecthorary // Object recovered from PrintFullMenuBottega()
  */
@@ -229,25 +243,29 @@ function CreateTicketAskUser (menuselecthorary) {
       for (let [key, value] of Object.entries(menuselecthorary)) {
         if (key === 'firstplate') {
           AskUserOpcion(menuselecthorary[key], this.alertviewfirstplate);
-          alert( 'You have selected: ' + '\n' + this.selectedplatenameplate + '     -------     ' + this.selectedplatecostplate + ' €' );
+          let commentline1 = CommentLibrary();
+          alert( 'You have selected: ' + '\n' + this.selectedplatenameplate + '     -------     ' + this.selectedplatecostplate + ' €' + '\n' + commentline1 );
           totalprice += this.selectedplatecostplate;
           this.lineticket1 = ('You first plate selected : ' + this.selectedplatenameplate + '     -------     ' + this.selectedplatecostplate + ' €' + '\n' );
+
         };
         if (key === 'secondplate') {
           AskUserOpcion(menuselecthorary[key], this.alertviewsecondplate);
-          alert( 'You have selected: ' + '\n' + this.selectedplatenameplate + '     -------     ' + this.selectedplatecostplate + ' €' );
+          let commentline2 = CommentLibrary();
+          alert( 'You have selected: ' + '\n' + this.selectedplatenameplate + '     -------     ' + this.selectedplatecostplate + ' €' + '\n' + commentline2 );
           totalprice += this.selectedplatecostplate;
           this.lineticket2 = ('You second plate selected : ' + this.selectedplatenameplate + '     -------     ' + this.selectedplatecostplate + ' €' + '\n' );
         };
         if (key === 'thirdplate') {
           AskUserOpcion(menuselecthorary[key], this.alertviewthirdplate);
-          alert( 'You have selected: ' + '\n' + this.selectedplatenameplate + '     -------     ' + this.selectedplatecostplate + ' €' );
+          let commentline3 = CommentLibrary();
+          alert( 'You have selected: ' + '\n' + this.selectedplatenameplate + '     -------     ' + this.selectedplatecostplate + ' €' + '\n' + commentline3 );
           totalprice += this.selectedplatecostplate;
           this.lineticket3 = ('You third plate selected : ' + this.selectedplatenameplate + '     -------     ' + this.selectedplatecostplate + ' €' + '\n' );
         };
       };
       if( this.lineticket1 && this.lineticket2 && this.lineticket3 && totalprice ){
-        alert( 'Order : ' + '\n' +  this.lineticket1 + '\n' + this.lineticket2 + '\n' + this.lineticket3 + '\n' + 'Total amount ordered :' + totalprice.toFixed(2) + ' €' );
+        alert( 'Order : ' + '\n' +  this.lineticket1 + '\n' + this.lineticket2 + '\n' + this.lineticket3 + '\n' + 'Total amount ordered : ' + totalprice.toFixed(2) + ' €' );
       } else{
         throw 'Error: It was not possible to create the ticket';
       };
