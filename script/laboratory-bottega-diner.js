@@ -1,158 +1,270 @@
-//Bottega bar branch
+//Carte Bottega
 
-let titlefixedallapp = ['Bottega Bar', '¡¡¡Wellcome!!!', 'Good morning!', 'Good afternoom', 'Good night'];
-let datafixedallapp = ['Menu', 'Breakfast', 'Lunch', 'Diner', 'Article', 'Ingredient', 'Garnish', 'Supplement', 'piece', '25 centiliter glass', 'slice'];
-let tipsfixedallapp = ['It is very tasty', 'It is very nutritious', 'It is very healthy'];
-
-let identifierarticle = 0;
-function NewArticleBottegaBar (id, narticlebb, lhealthbb, particlebb, uarticlebb ){
-    identifierarticle = id;
-    this.namearticlebottegabar = narticlebb;
-    this.levelhealth = lhealthbb;
-    this.pricearticlebottegabar = particlebb;
-    this.unitarticlebottegabar = uarticlebb;
-    const objectarticlebottegabar = { 
-        'identifier':identifierarticle,
-        'namearticle':this.namearticlebottegabar,
-        'levelhealt':this.levelhealth,
-        'priceart':this.pricearticlebottegabar,
-        'unitmeas':this.unitarticlebottegabar
-    };
-    listarticlecreated.push(objectarticlebottegabar);
+// Menu application database
+const cartebottega = {
+  breakfast: {
+    firstplate: {
+      first: { nameplate: 'EGGS', costplate: 3.33 },
+      second: { nameplate: 'RIZE', costplate: 4.4 },
+      third: { nameplate: 'MEAT', costplate: 5.16 }
+    },
+    secondplate: {
+      first: { nameplate: 'FISH', costplate: 6.21 },
+      second: { nameplate: 'VEGETABLES', costplate: 7.18 },
+      third: { nameplate: 'SALAD', costplate: 8.96 }
+    },
+    thirdplate: {
+      first: { nameplate: 'DESSERT', costplate: 4.22 },
+      second: { nameplate: 'FRUIT', costplate: 6.56 },
+      third: { nameplate: 'COFFE', costplate: 9.61 }
+    }
+  },
+  lunch: {
+    firstplate: {
+      first: { nameplate: 'POTATOES', costplate: 7.69 },
+      second: { nameplate: 'DRINK', costplate: 4.4 },
+      third: { nameplate: 'VEGETABLES', costplate: 5.16 }
+    },
+    secondplate: {
+      first: { nameplate: 'FISH', costplate: 6.21 },
+      second: { nameplate: 'MEAT', costplate: 7.18 },
+      third: { nameplate: 'SALAD', costplate: 8.96 }
+    },
+    thirdplate: {
+      first: { nameplate: 'ORANGE', costplate: 4.22 },
+      second: { nameplate: 'APPLE', costplate: 6.56 },
+      third: { nameplate: 'BANANA', costplate: 9.61 }
+    }
+  },
+  diner: {
+    firstplate: {
+      first: { nameplate: 'SOUP', costplate: 11.69 },
+      second: { nameplate: 'DRINK', costplate: 14.4 },
+      third: { nameplate: 'VEGETABLES', costplate: 15.16 }
+    },
+    secondplate: {
+      first: { nameplate: 'FISH', costplate: 16.21 },
+      second: { nameplate: 'MEAT', costplate: 17.18 },
+      third: { nameplate: 'SALAD', costplate: 18.96 }
+    },
+    thirdplate: {
+      first: { nameplate: 'ORANGE', costplate: 14.22 },
+      second: { nameplate: 'APPLE', costplate: 16.56 },
+      third: { nameplate: 'BANANA', costplate: 19.61 }
+    }
+  }
 };
 
-let identifiercombined = 0;
-function NewCombinedBottegaBar(id, ncombinedbb, tcombinedbb,dcombinedbb,...listingcombined){
-    identifiercombined = id;
-    this.namecombinedbottegabar = ncombinedbb;
-    this.typecombinedbottegabar = tcombinedbb;
-    this.descriptioncombinedbottegabar = dcombinedbb;
-    this.pricecombinedbottegabar = 0;
-    this.levelhealthcombinedbottegabar = 0;
-    this.listingredientscombinedbottegabar = listingcombined;
-    let salesmargin = 0.45;
-    let salesmargindiner = 0.35;
+/**
+ * SelectUserTime: Ask the time of day, conditional to choose menu
+ * @returns boolean or str
+*/
 
-    for( let k = 0; k < listingcombined.length;k++){
-        if( ncombinedbb === datafixedallapp[2]){
-            //console.log('Diner');
-            if( k % 2 == 0){
-                let linelevelhealth = parseFloat(listingcombined[k].levelhealt);
-                this.levelhealthcombinedbottegabar += linelevelhealth;
-                let totalline = parseFloat(listingcombined[k].priceart) * listingcombined[k+1];
-                this.pricecombinedbottegabar += totalline;
-                let result = this.pricecombinedbottegabar * salesmargindiner;
-                this.pricecombinedbottegabar += result;
-            }
-        }else{
-            if( k % 2 == 0){
-                let linelevelhealth = parseFloat(listingcombined[k].levelhealt);
-                this.levelhealthcombinedbottegabar += linelevelhealth;
-                let totalline = parseFloat(listingcombined[k].priceart) * listingcombined[k+1];
-                this.pricecombinedbottegabar += totalline;
-                let result = this.pricecombinedbottegabar * salesmargin;
-                this.pricecombinedbottegabar += result;
-            }
-        }
-    };
+function SelectUserTime() {
+    try {
+        this.userhasselectedprompt =  prompt('Please can you enter the time in the requested format. Thank you. \nSpecified format ( HH:MM )');
 
-    const listingredientscombined = { 
-        'identifier' : identifiercombined,
-        'namecombined' : this.namecombinedbottegabar,
-        'typecombined' : this.typecombinedbottegabar,
-        'descriptioncombined' : this.descriptioncombinedbottegabar,
-        'listingredients' : this.listingredientscombinedbottegabar,
-        'pricecombined' : this.pricecombinedbottegabar,
-        'levelhealth' : this.levelhealthcombinedbottegabar
-    };
-    listcombinedcreate.push(listingredientscombined);
-};
+        // verified null
+        if( this.userhasselectedprompt == null ){
+          throw 'Error : The user canceled the prompt';
+        };
+        
+        // work table
+        let workvariablefunction = this.userhasselectedprompt;
 
-const listarticlecreated = [];
-let articlenum00000 = new NewArticleBottegaBar(0,'egg','0.75','0.82', datafixedallapp[8]);
-let articlenum00001 = new NewArticleBottegaBar(1,'bacon','1.25','1.63', datafixedallapp[10]);
-let articlenum00002 = new NewArticleBottegaBar(2,'juice orange','0.25','4.89', datafixedallapp[9]);
-let articlenum00003 = new NewArticleBottegaBar(3,'bacon','1.25','1.63', datafixedallapp[10]);
-let articlenum00004 = new NewArticleBottegaBar(4,'toast','1.25','1.63', datafixedallapp[8]);
-let articlenum00005 = new NewArticleBottegaBar(5,'butter','1.25','1.63', datafixedallapp[8]);
-let articlenum00006 = new NewArticleBottegaBar(6,'jewish','0.25','1.13', datafixedallapp[8]);
-let articlenum00007 = new NewArticleBottegaBar(7,'potato','0.25','1.67', datafixedallapp[8]);
-let articlenum00008 = new NewArticleBottegaBar(8,'carrot','0.25','1.21', datafixedallapp[8]);
-let articlenum00009 = new NewArticleBottegaBar(9,'broccoli','0.25','1.16', datafixedallapp[8]);
-let articlenum00010 = new NewArticleBottegaBar(10,'tomato','0.25','3.99', datafixedallapp[8]);
-let articlenum00011 = new NewArticleBottegaBar(11,'lettuce','0.25','2.17', datafixedallapp[8]);
-let articlenum00012 = new NewArticleBottegaBar(12,'onion','0.25','1.52', datafixedallapp[8]);
-let articlenum00013 = new NewArticleBottegaBar(13,'meat pork','1.50','9.33', datafixedallapp[8]);
-let articlenum00014 = new NewArticleBottegaBar(14,'fish','0.75','7.86', datafixedallapp[8]);
-let articlenum00015 = new NewArticleBottegaBar(15,'chips','1.75','3.69', datafixedallapp[8]);
-let articlenum00016 = new NewArticleBottegaBar(16,'mashed potatoes','1.75','6.09', datafixedallapp[8]);
+        // verified lenght
+        if( workvariablefunction.length != 5 ){
+          alert( 'Please use the specified format. Thank you.' );
+          return false;
+        };
 
-const listcombinedcreate = [];
-let combined00000 = new NewCombinedBottegaBar(0, datafixedallapp[1],datafixedallapp[0], 'Menu 0 : Egg + toast + juice orange + butter + full cooffe',listarticlecreated[0],1,listarticlecreated[4],1,listarticlecreated[2],1,listarticlecreated[5],1);
-let combined00001 = new NewCombinedBottegaBar(1, datafixedallapp[1],datafixedallapp[0], 'Menu 1 : Egg(2) + toast(2) + butter(2) + full cooffe',listarticlecreated[0],2,listarticlecreated[4],2,listarticlecreated[5],2);
-let combined00002 = new NewCombinedBottegaBar(2, datafixedallapp[2],datafixedallapp[0], 'Menu 2 : Meat pork + egg + toast + butter',listarticlecreated[13],1,listarticlecreated[0],1,listarticlecreated[4],1,listarticlecreated[5],1);
-let combined00003 = new NewCombinedBottegaBar(3, datafixedallapp[2],datafixedallapp[0], 'Menu 3 : Fish + egg',listarticlecreated[14],1,listarticlecreated[0],1);
-let combined00004 = new NewCombinedBottegaBar(4, datafixedallapp[3],datafixedallapp[0], 'Menu 4 : Meat pork + egg + toast + butter',listarticlecreated[13],1,listarticlecreated[0],1,listarticlecreated[4],1,listarticlecreated[5],1);
-let combined00005 = new NewCombinedBottegaBar(5, datafixedallapp[3],datafixedallapp[0], 'Menu 5 : Fish + egg',listarticlecreated[14],1,listarticlecreated[0],1);
-let combined00006 = new NewCombinedBottegaBar(6, datafixedallapp[6],datafixedallapp[6], 'Guarnish 6 : Vegetables',listarticlecreated[6],1,listarticlecreated[7],1,listarticlecreated[8],1,listarticlecreated[9],1);
-let combined00007 = new NewCombinedBottegaBar(7, datafixedallapp[6],datafixedallapp[6], 'Guarnish 7 : Salad',listarticlecreated[10],1,listarticlecreated[11],1,listarticlecreated[12],1);
-let combined00008 = new NewCombinedBottegaBar(8, datafixedallapp[6],datafixedallapp[6], 'Guarnish 8 : Mashed potatoes',listarticlecreated[16],1);
+        const verifiedregex = new RegExp( '^[0-9]{2}:[0-9]{2}' );
 
-function NewTicket(list){
-    let totalticket = 0;
-    for( let i = 0 ; i < list.length; i++){
-        if(list[i].typecombined === datafixedallapp[0]){
-            console.log(list[i].descriptioncombined + '  - - - ' + (list[i].pricecombined).toFixed(2) + '€');
-        }else{
-            console.log(list[i].descriptioncombined + '  - - - ' + (list[i].pricecombined).toFixed(2) + '€');
-        }
-    };
-    console.log('¿Quieres realizar un pedido?');
-    let mselect = prompt('¿Seleccione un menu, por favor?');
-    if(mselect){
-        if(mselect >= 0 && mselect <= 5){
-            if( list[mselect].levelhealth <= 2){
-                alert(tipsfixedallapp[2]);
-            }; 
-            if( list[mselect].levelhealth > 2 && list[mselect].levelhealth <= 4){
-                alert(tipsfixedallapp[1]);
-            };
-            if( list[mselect].levelhealth > 4){
-                alert(tipsfixedallapp[0]);
-            };
-            console.log('Has seleccionado, ' + list[mselect].descriptioncombined + ' - - - ' + (list[mselect].pricecombined).toFixed(2) + '€');
-            totalticket += list[mselect].pricecombined;
-            let gselect = prompt('¿Seleccione una guarnicion, por favor?');
-            if(gselect){
-                if(gselect >= 6 && gselect <= 8){
-                    if( list[gselect].levelhealth <= 2){
-                        alert(tipsfixedallapp[2]);
-                    }; 
-                    if( list[gselect].levelhealth > 2 && list[gselect].levelhealth <= 4){
-                        alert(tipsfixedallapp[1]);
-                    };
-                    if( list[gselect].levelhealth > 4){
-                        alert(tipsfixedallapp[0]);
-                    };
-                    console.log('Has seleccionado, ' + list[gselect].descriptioncombined + ' - - - ' + (list[gselect].pricecombined).toFixed(2) + '€');
-                    totalticket += list[gselect].pricecombined;
-                    console.log('Total ticket : ' + (totalticket).toFixed(2) + '€');
-                }else{
-                    alert('You must select a digit between 6 and 8 please');
-                    console.log('You must select a digit between 6 and 8 please');
-                }
-            }else{
-                alert('You must enter the guarnish digit please');
-                console.log('You must enter the guarnish digit please');
-            }
-        }else{
-            alert('You must select a digit between 0 and 5 please');
-            console.log('You must select a digit between 0 and 5 please');
-        }
-    }else{
-        alert('You must enter the menu digit please');
-        console.log('You must enter the menu digit please');
+        if (verifiedregex.test(workvariablefunction) === false) {
+            alert('Please use the specified format. Thank you.');
+            return false;
+        } else if (workvariablefunction < '00:00' || workvariablefunction > '23:59' || workvariablefunction.substring(3) > '59') {
+            alert('The correct format is between 00:00 and 23:59, thank you.');
+            return false;
+        } else {
+            return this.userhasselectedprompt;
+        };
+    } catch (e) {
+        console.error(e);
     };
 };
-console.log( titlefixedallapp[1] + ' ' + titlefixedallapp[0] );
-NewTicket(listcombinedcreate);
+
+/**
+ * SelectorMenuUserTime : Show the menu that corresponds according to the time
+ * @param {*} userhasselectedprompt // return SelectUserTime()
+ */
+
+function SelectorMenuUserTime () {
+  try{
+    // Ask the time
+    while (SelectUserTime() === false) {
+      SelectUserTime();
+    };
+
+    let titlemenu = '';
+
+    if (userhasselectedprompt >= '00:00' && userhasselectedprompt < '11:00') {
+      let menuselectedschedule = cartebottega.breakfast;
+      titlemenu = 'BOTTEGA MENU : BREADFAST';
+      PrintFullMenuBottega(menuselectedschedule, titlemenu);
+    } else if (userhasselectedprompt > '10:59' && userhasselectedprompt < '17:00') {
+      let menuselectedschedule = cartebottega.lunch;
+      titlemenu = 'BOTTEGA MENU : LUNCH';
+      PrintFullMenuBottega(menuselectedschedule, titlemenu);
+    } else if (userhasselectedprompt > '16:59' && userhasselectedprompt <= '23:59') {
+      let menuselectedschedule = cartebottega.diner;
+      titlemenu = 'BOTTEGA MENU : DINER';
+      PrintFullMenuBottega(menuselectedschedule, titlemenu);
+    };
+  }catch(e){
+    console.error(e);
+  };
+};
+
+/**
+ * PrintFullMenuBottega : Object moved according to user menu selection
+ * Print alert with entire menu, call the request function select the first plate
+ * @param {*} menuselectedschedule // Object recovered from SelectorMenuUserTime()
+ * @param {*} titlemenu // str recovered from SelectorMenuUserTime()
+ */
+
+function PrintFullMenuBottega (menuselectedschedule, titlemenu) {
+  try{
+      for (let [key, value] of Object.entries(menuselectedschedule)) {
+        if (key === 'firstplate') {
+          CreateVisionMenuPlate(menuselectedschedule[key])
+          this.alertviewfirstplate = '' + '\n' + key + '\n' + '---------------------' + '\n' + this.plateviewingformat + '\n';
+        };
+        if (key === 'secondplate') {
+          CreateVisionMenuPlate(menuselectedschedule[key])
+          this.alertviewsecondplate = '' + '\n' + key + '\n' + '---------------------' + '\n' + this.plateviewingformat + '\n';
+        };
+        if (key === 'thirdplate') {
+          CreateVisionMenuPlate(menuselectedschedule[key])
+          this.alertviewthirdplate = '' + '\n' + key + '\n' + '---------------------' + '\n' + this.plateviewingformat + '\n';
+        };
+      };
+      
+      if( this.alertviewfirstplate && this.alertviewsecondplate && this.alertviewthirdplate && titlemenu){
+        alert( titlemenu + '\n' + this.alertviewfirstplate + this.alertviewsecondplate +  this.alertviewthirdplate );
+        CreateTicketAskUser(menuselectedschedule);
+      }else{
+        throw 'The entire menu could not be printed';
+      };
+  } catch(e){
+      console.error(e);
+  };
+};
+
+
+/**
+ * CreateVisionMenuPlate : Individually create the three plates on each menu
+ * @param {*} menuplate // Object recovered from PrintFullMenuBottega()
+ */
+
+function CreateVisionMenuPlate (menuplate) {
+  this.plateviewingformat = '';
+  plateviewingformat = plateviewingformat.concat( menuplate.first.nameplate + ' ---------- ' + menuplate.first.costplate + ' €' + '\n' );
+  plateviewingformat = plateviewingformat.concat( menuplate.second.nameplate + ' ---------- ' + menuplate.second.costplate + ' €' + '\n' );
+  plateviewingformat = plateviewingformat.concat( menuplate.third.nameplate + ' ---------- ' + menuplate.third.costplate + ' €' + '\n' );
+};
+
+/**
+ * AskUserOpcion : Ask the user which plate menu option they want
+ * @param {*} optionmenuselecthorary // Object recovered from CreateTicketAskUser()
+ * @param {*} alertviewmenuplate // View of the selected plate
+ * @returns
+ */
+
+function AskUserOpcion (optionmenuselecthorary, alertviewmenuplate) {
+  try{
+      this.statusfunction = '';
+      this.selectedplatenameplate = '';
+      this.selectedplatecostplate = '';
+
+      let optionmenu = Object.entries(optionmenuselecthorary);
+      
+      let result = prompt( alertviewmenuplate + '\n' + 'Select a plate, please.');
+      
+      // verified null
+      if( result == null ){
+        alert('You must write the name of the desired plate please. Thank you');
+        localStorage.clear();
+        AskUserOpcion (optionmenuselecthorary, alertviewmenuplate);
+      } else{
+        result = result.toLocaleUpperCase();
+      };
+
+      const listado = optionmenu.forEach(([key,value]) => {
+        if( value.nameplate === result ){
+          this.selectedplatenameplate = value.nameplate;
+          this.selectedplatecostplate = value.costplate;
+          statusfunction = 'verified';
+        };
+      });
+
+      if( statusfunction !== 'verified'){
+        alert('You must write the name of the desired plate please. Thank you');
+        AskUserOpcion (optionmenuselecthorary, alertviewmenuplate);
+      };
+  } catch(e){
+      console.error(e);
+  }; 
+};
+
+/**
+ * CreateTicketAskUser : Complete order ticket generator
+ * @param {*} menuselecthorary // Object recovered from PrintFullMenuBottega()
+ */
+
+function CreateTicketAskUser (menuselecthorary) {
+  try{
+      let totalprice = 0;
+      
+      for (let [key, value] of Object.entries(menuselecthorary)) {
+        if (key === 'firstplate') {
+          AskUserOpcion(menuselecthorary[key], this.alertviewfirstplate);
+          alert( 'You have selected: ' + '\n' + this.selectedplatenameplate + '     -------     ' + this.selectedplatecostplate + ' €' );
+          totalprice += this.selectedplatecostplate;
+          this.lineticket1 = ('You first plate selected : ' + this.selectedplatenameplate + '     -------     ' + this.selectedplatecostplate + ' €' + '\n' );
+        };
+        if (key === 'secondplate') {
+          AskUserOpcion(menuselecthorary[key], this.alertviewsecondplate);
+          alert( 'You have selected: ' + '\n' + this.selectedplatenameplate + '     -------     ' + this.selectedplatecostplate + ' €' );
+          totalprice += this.selectedplatecostplate;
+          this.lineticket2 = ('You second plate selected : ' + this.selectedplatenameplate + '     -------     ' + this.selectedplatecostplate + ' €' + '\n' );
+        };
+        if (key === 'thirdplate') {
+          AskUserOpcion(menuselecthorary[key], this.alertviewthirdplate);
+          alert( 'You have selected: ' + '\n' + this.selectedplatenameplate + '     -------     ' + this.selectedplatecostplate + ' €' );
+          totalprice += this.selectedplatecostplate;
+          this.lineticket3 = ('You third plate selected : ' + this.selectedplatenameplate + '     -------     ' + this.selectedplatecostplate + ' €' + '\n' );
+        };
+      };
+      if( this.lineticket1 && this.lineticket2 && this.lineticket3 && totalprice ){
+        alert( 'Order : ' + '\n' +  this.lineticket1 + '\n' + this.lineticket2 + '\n' + this.lineticket3 + '\n' + 'Total amount ordered :' + totalprice.toFixed(2) + ' €' );
+      } else{
+        throw 'Error: It was not possible to create the ticket';
+      };
+    }catch(e){
+      console.error(e);
+  };
+}; 
+
+function main () {
+  try{
+    
+    // Show the menu according to the selected time
+    SelectorMenuUserTime();
+  
+  }catch(e){
+    console.error(e);
+  };
+};
+
+main();
