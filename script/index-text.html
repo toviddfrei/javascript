@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Petición API en JavaScript</title>
+</head>
+<body>
+    <div id="resultado"></div>
+
+    <script>
+        // URL de la API a la que queremos hacer la petición
+        const urlApi = 'https://api.nasa.gov/neo/rest/v1/feed?start_date=2015-09-07&end_date=2015-09-08&api_key=4vI6vbPes5mbQjqwr9PaAjtndVfy8tjmrRVScZxx';
+
+        // Función para realizar la petición y mostrar los resultados
+        function obtenerDatos() {
+            fetch(urlApi)
+                .then(response => response.json())
+                .then(data => {
+                    // Aquí procesamos los datos obtenidos
+                    const divResultado = document.getElementById('resultado');
+                    divResultado.textContent = JSON.stringify(data);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+
+        // Llamamos a la función para realizar la petición
+        obtenerDatos();
+    </script>
+</body>
+</html>
+
